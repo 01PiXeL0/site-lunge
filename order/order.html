@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleorder.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <img src="/images/icons/logo.png" alt="Логотип" class="header_logo">
+            <nav class="header_nav"></nav>
+            <a href="#!" class="btn" id="backtomain">Главная</a>
+        </div>
+    </header>
+    <main class="main">
+        <section class="welcome">
+            <div class="container">
+                <div class="ordermain">
+                    <h1 class="h1text" id="texts">Ваше имя:</h1>
+                    <input type="text" id="username" class="inputs" name="username">
+                    <h1 class="h1text" id="texts">Ваш номер:</h1>
+                    <input type="tel" id="phone" name="phone" class="inputs" pattern="(\+7|8)\d{10}" placeholder="+7XXXXXXXXXX" required>
+                    <h1 class="h1text" id="texts">Ваш адрес:</h1>
+                    <input type="text" id="address" class="inputs" name="address" placeholder="St.#####">
+                    <h1 class="h1text" id="texts">Ваш заказ:</h1>
+                    <input type="text" id="order" class="inputs" name="order" placeholder="Введите ваш заказ" required>
+                    <a href="#!" class="btn" id="orderBtn">Заказать</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.getElementById("backtomain").addEventListener("click", function() {
+            // Переход на главную страницу
+            window.location.href = "/mainpage.html"; 
+        });
+
+        document.getElementById("orderBtn").addEventListener("click", function() {
+            // Получаем значения полей
+            var username = document.getElementById("username").value;
+            var phone = document.getElementById("phone").value;
+            var address = document.getElementById("address").value;
+            var order = document.getElementById("order").value;
+
+            // Проверяем, все ли поля заполнены
+            if(username === "" || phone === "" || address === "" || order === "") {
+                alert("Пожалуйста, заполните все поля.");
+                return; // Останавливаем выполнение функции
+            }
+
+            // Если все поля заполнены, можно отправлять заказ
+            // Ваша логика отправки заказа...
+        });
+    </script>
+    <script>
+        document.getElementById("orderBtn").addEventListener("click", function() {
+            // Получаем значения полей
+            var username = document.getElementById("username").value;
+            var phone = document.getElementById("phone").value;
+            var address = document.getElementById("address").value;
+            var order = document.getElementById("order").value;
+    
+            // Проверяем, все ли поля заполнены
+            if(username === "" || phone === "" || address === "" || order === "") {
+                alert("Пожалуйста, заполните все поля.");
+                return; // Останавливаем выполнение функции
+            }
+    
+            // Проверяем, является ли введенный номер действительным
+            var phonePattern = /^(\+7|8)\d{10}$/; // Регулярное выражение для номера телефона
+            if(!phonePattern.test(phone)) {
+                alert("Пожалуйста, введите корректный номер телефона.");
+                return; // Останавливаем выполнение функции
+            }
+    
+            // Если все поля заполнены и номер телефона корректен, можно отправлять заказ
+            // Ваша логика отправки заказа...
+        });
+    </script>
+</body>
+</html>
